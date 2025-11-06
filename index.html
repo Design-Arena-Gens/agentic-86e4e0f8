@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Create</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="description" content="Create and manage your book list locally." />
+</head>
+<body>
+  <header class="container">
+    <h1>Book Create</h1>
+    <p class="subheading">Add books and keep them in your browser.</p>
+  </header>
+
+  <main class="container grid">
+    <section class="card">
+      <h2>Add a new book</h2>
+      <form id="book-form" autocomplete="off">
+        <div class="field">
+          <label for="title">Title<span class="req">*</span></label>
+          <input id="title" name="title" type="text" required placeholder="The Pragmatic Programmer" />
+        </div>
+        <div class="field">
+          <label for="author">Author</label>
+          <input id="author" name="author" type="text" placeholder="Andrew Hunt, David Thomas" />
+        </div>
+        <div class="field two-col">
+          <div>
+            <label for="year">Year</label>
+            <input id="year" name="year" type="number" min="0" max="9999" placeholder="1999" />
+          </div>
+          <div>
+            <label for="isbn">ISBN</label>
+            <input id="isbn" name="isbn" type="text" placeholder="978-0201616224" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4" placeholder="Short description..."></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit" class="primary">Create Book</button>
+          <button type="reset" class="ghost" id="reset-button">Reset</button>
+        </div>
+      </form>
+      <p class="hint">Books are stored in your browser using localStorage.</p>
+    </section>
+
+    <section class="card">
+      <div class="list-header">
+        <h2>Your books</h2>
+        <button id="clear-all" class="danger small" title="Remove all books">Clear all</button>
+      </div>
+      <div id="empty" class="empty">No books yet. Add your first one!</div>
+      <ul id="book-list" class="book-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="container footer">
+    <span>Built for quick local book tracking.</span>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
